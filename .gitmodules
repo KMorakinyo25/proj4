@@ -1,0 +1,3 @@
+[submodule "ChatGPTAPIFree"]
+	path = ChatGPTAPIFree
+	url = https://github.com/GandhiHarsh2003/ChatGPTAPIFree.git
