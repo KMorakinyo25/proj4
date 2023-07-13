@@ -1,4 +1,5 @@
 import openai
+from ChatGPTAPIFree
 
 # Set your OpenAI API key
 openai.api_key = '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'
