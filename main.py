@@ -29,9 +29,19 @@ with app.app_context():
 def home():
     return render_template('home.html', subtitle='', text='Please Select Login Portal Above.')
 
+<<<<<<< HEAD
 @app.route("/patient")
 def pat():
     return render_template('patient.html', subtitle='Patient Page', text='Welcome')
+=======
+@app.route('/recommend')
+def recommend():
+    return render_template('recommend.html')
+
+# @app.route("/doctor_login")
+# def doct():
+#     return render_template('doctor.html', subtitle='Doctor Sign In Page', text='Please Log In.')
+>>>>>>> refs/remotes/origin/main
 
 
 @app.route("/login", methods=['GET', 'POST'])
