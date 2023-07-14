@@ -11,10 +11,13 @@ app.config['SECRET_KEY'] = 'f46d9cffd6774fefbe29c89f0ed3dc39'
 def home():
     return render_template('home.html', subtitle='', text='Please Select Login Portal Above.')
 
-@app.route('/recommend')
+@app.route('/recommend', methods=['GET', 'POST'])
 def recommend():
     return render_template('recommend.html')
 
+@app.route('/proxy/5000/index')
+def index():
+    return render_template('index.html')
 # @app.route("/doctor_login")
 # def doct():
 #     return render_template('doctor.html', subtitle='Doctor Sign In Page', text='Please Log In.')

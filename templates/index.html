@@ -1,19 +1,16 @@
-{% extends "layout.html" %}
-
-{% block content %}
 <!DOCTYPE html>
 <head>
-  <title>Symptom Tracker</title>
-  <link rel="stylesheet" href='static/recommendationStyle.css'>
-</head>
+    <title>Symptom Tracker</title>
+    <link rel="stylesheet" href='static/recommendationStyle.css'>
+  </head>
 <html>
 <head>
     <title>GPT-3 Text Generation</title>
 </head>
 <body>
-    <h1>GPT-3 Text Generation</h1>
+    <h1>What specialist would be right for you?</h1>
     
-    <form action="https://timefloat-prestoberlin-4000.codio.io/proxy/5000//recommend" method="POST">
+    <form action="https://timefloat-prestoberlin-4000.codio.io/proxy/5000/process_form" method="POST">
         <label for="prompt">Enter a prompt:</label>
         <input type="text" id="prompt" name="prompt" required>
         <br>
@@ -21,12 +18,7 @@
     </form>
 
     {% if generated_text %}
-    <h2>Generated Text:</h2>
     <p>{{ generated_text }}</p>
     {% endif %}
 </body>
 </html>
-
-{% endblock %}
-
-

@@ -1,21 +1,37 @@
+from flask import Flask, render_template, request
 import openai
-from ChatGPTAPIFree
+
+app = Flask(__name__)
 
 # Set your OpenAI API key
-openai.api_key = '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'
+openai.api_key = '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'
 
-# Define your prompt
-prompt = "Once upon a time"
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-# Make an API call
-response = openai.Completion.create(
-  engine="text-davinci-003",
-  prompt=prompt,
-  max_tokens=100
-)
+@app.route('/process_form', methods=['GET', 'POST'])
+def process_form():
+    if request.method == 'POST':
+        prompt = request.form['prompt'] + "Give me one word answer. What kind of specialist should I consult for my symptopms. If its not symtomp then say its not a symptom"
 
-# Extract the generated text from the response
-generated_text = response.choices[0].text.strip()
+        # Make an API call to OpenAI
+        response = openai.Completion.create(
+            engine="text-davinci-003",
+            prompt=prompt,
+            max_tokens=100
+        )
 
-# Print the generated text
-print(generated_text)
+        # Extract the generated text from the API response
+        generated_text = response.choices[0].text.strip()
+
+        # Render the template with the generated text
+        return render_template('index.html', generated_text=generated_text)
+
+    return "This route only supports POST requests"
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
